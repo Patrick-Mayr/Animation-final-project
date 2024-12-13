@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using DitzelGames.FastIK;
 
 public class Dialogue : MonoBehaviour
 {
@@ -10,6 +11,10 @@ public class Dialogue : MonoBehaviour
     public float textSpeed;
 
     private int index;
+
+    public GameObject painting; 
+    public GameObject model; 
+    public GameObject handIK;
 
     // Start is called before the first frame update
     void Start()
@@ -66,6 +71,10 @@ public class Dialogue : MonoBehaviour
         else
         {
             gameObject.SetActive(false);
+
+            painting.SetActive(true);
+            model.SetActive(false);
+            handIK.GetComponent<FastIKFabric>().enabled = false;
         }
     }
 }

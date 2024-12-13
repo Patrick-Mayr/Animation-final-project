@@ -19,6 +19,9 @@ public class PlayerManager : MonoBehaviour
     [SerializeField, Range(0, 90)] private float maxViewAngle;
     [SerializeField] private Transform lookAtPoint;
 
+    [SerializeField] private Interact theSwing;
+    [SerializeField] private Interact americanGothic; 
+
     private Rigidbody rb;
     private Vector2 currentRotation;
 
@@ -94,5 +97,11 @@ public class PlayerManager : MonoBehaviour
 
         //rotate up and down
         lookAtPoint.localRotation = Quaternion.AngleAxis(currentRotation.y, Vector3.right);
+    } 
+
+    private void OnInteract (InputValue inputValue)
+    {
+        theSwing.ActivatePainting();
+        americanGothic.ActivatePainting();
     }
 }
